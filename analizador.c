@@ -62,4 +62,9 @@ int main(int argc, char * argv[]){
 	if ( (in = fopen(nomArchi, "r") ) == NULL ) {
 		printf("No se pudo abrir archivo fuente\n"); return -1; //no pudo abrir archivo
 	}
+	/*************************Inicio Compilacion***************************/
+	Objetivo();
+	/**************************Se cierra el Archivo Fuente******************/
+	fclose(in);
+	return 0;
 }
