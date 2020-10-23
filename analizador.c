@@ -141,7 +141,6 @@ int main(int argc, char * argv[]) {
 }
 
 /**********Procedimientos de Analisis Sintactico (PAS) *****************/
-/**********Procedimientos de Analisis Sintactico (PAS) *****************/
 
 void Objetivo(void) {
     /* <objetivo> -> <programa> FDT #terminar */
