@@ -48,6 +48,36 @@ void ListaSentencias(void){
 	}// fin del while
 }// fin funcion
 
+void Sentencia(void) {
+	TOKEN tok = ProximoToken();
+	REG_EXPRESION izq, der;
+	//typedef struct{ TOKEN clase; char nombre[TAMLEX]; int valor; } REG_EXPRESION;
+	switch (tok) {
+		case ID : /* <sentencia> -> ID := <expresion> #asignar ; */
+ 			Identificador(&izq);
+			Match(ASIGNACION);
+ 			Expresion(&der);
+ 			Asignar(izq, der); //genera instrucción de asignacion
+ 			Match(PUNTOYCOMA);
+ 		break;
+ 		case LEER : /* <sentencia> -> LEER ( <listaIdentificadores> ) */
+ 			Match(LEER);
+			Match(PARENIZQUIERDO);
+ 			ListaIdentificadores();
+ 			Match(PARENDERECHO);
+ 			Match(PUNTOYCOMA);
+ 		break;
+ 		case ESCRIBIR : /* <sentencia> -> ESCRIBIR ( <listaExpresiones> ) */
+ 			Match(ESCRIBIR);
+ 			Match(PARENIZQUIERDO);
+ 			ListaExpresiones();
+ 			Match(PARENDERECHO);
+ 			Match(PUNTOYCOMA);
+ 		break;
+ 		default : return;
+	}
+}
+
 
 /***************************Programa Principal************************/
 int main(int argc, char * argv[]){
