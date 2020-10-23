@@ -18,27 +18,35 @@ int tabla[NUMESTADOS][NUMCOLS] =
 	{14,14,14,14,14,14,14,14,14,14,14,14,14}	// 14 err
 };
 
-void Objetivo (void){
-	programa();
-	match (fdt);
-	return;
+/**********Procedimientos de Analisis Sintactico (PAS) *****************/
+/**********Procedimientos de Analisis Sintactico (PAS) *****************/
+void Objetivo(void){
+	/* <objetivo> -> <programa> FDT #terminar */
+	Programa();
+	Match(FDT);
+	Terminar();
 }
 
-void ListaSentencias (void){
-	//<listaSentencias> -> <sentencia> {<sentencia>}
-	Sentencia()// la primera que detecta
-	while(1){//ciclo infinito
-	switch (ProximoToken()){
-		case ID:
-		case LEER:
-		case ESCRIBIR: //detecto un token correcto
-		sentencia(); //procesa la otra sentencia
-		break;
-		default: return;
-		}//del análisis de caso
-	}// de la repeticion
-}// del proceso
+void Programa(void){
+	/* <programa> -> #comenzar INICIO <listaSentencias> FIN */
+	Comenzar();//de inicio semántico en caso de corresponder
+	Match(INICIO);
+	ListaSentencias();
+	Match(FIN);
+}
 
+void ListaSentencias(void){
+	/* <listaSentencias> -> <sentencia> {<sentencia>} */
+	Sentencia();
+	while ( 1 ) {// se repite hasta que retorna al no encontrar sentencia {<sentencia>}
+	switch ( ProximoToken() ) {
+		case ID : case LEER : case ESCRIBIR :
+		Sentencia();
+		break;
+		default : return; //si no es sentencia termina la funcion
+		}// fin del switch
+	}// fin del while
+}// fin funcion
 
 
 /***************************Programa Principal************************/
