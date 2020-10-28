@@ -1,0 +1,1 @@
+gcc asdr.c instrucciones.c lexer.c PAS.c TS.c -o compilador
