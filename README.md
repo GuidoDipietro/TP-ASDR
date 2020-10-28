@@ -1,6 +1,7 @@
 # TP ASDR
 
-Analizador sintáctico descendente recursivo del lenguaje Micro programado en C. Genera las instrucciones para la MV, no ejecuta realmente el código en Micro.
+Analizador sintáctico descendente recursivo del lenguaje Micro programado en C. Genera las instrucciones para la MV, no ejecuta realmente el código en Micro.  
+Para ejecutar código Micro, ver [este](https://github.com/GuidoDipietro/micro-flex-bison) otro TP.
 
 # Compilar
 
