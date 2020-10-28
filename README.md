@@ -17,6 +17,7 @@ inicio
 
 a := 5;
 b := a+14;
+a := 8;
 
 leer (a,b);
 escribir( 1+2 );
@@ -33,6 +34,7 @@ DECLARAR b ENTERA
 DECLARAR Temp1 ENTERA
 SUMAR a 14 Temp1
 ALMACENAR Temp1 b
+ALMACENAR 8 a
 LEER a ENTERA
 LEER b ENTERA
 DECLARAR Temp2 ENTERA
