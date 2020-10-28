@@ -1,4 +1,10 @@
 inicio
-a := 1+2+f;
-b := 1+1;
+
+a := 5;
+b := a+14;
+
+leer (a,b);
+escribir( 1+2 );
+escribir(a);
+
 fin

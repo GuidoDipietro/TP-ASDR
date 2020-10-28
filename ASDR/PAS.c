@@ -149,6 +149,7 @@ void ListaExpresiones(){
 	TOKEN t;
 	REG_EXPRESION reg;
 	Expresion(&reg);
+	Escribir(reg);
 	for (t=ProximoToken(); t==COMA; t=ProximoToken()){
 		Match(COMA);
 		Expresion(&reg);
